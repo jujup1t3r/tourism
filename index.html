@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Hour Tourism - Advanced API Version</title>
+    <title>Golden Hour Tourism - Full International Version</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -30,7 +30,6 @@
         .nav-links a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .nav-links a:hover { color: var(--coral-orange); }
 
-        /* Language Switcher */
         .lang-switch { color: white; font-weight: bold; margin-left: 10px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 15px; display: flex; gap: 5px; }
         .lang-btn { background: none; border: none; color: white; cursor: pointer; font-family: 'Kanit', sans-serif; font-size: 0.9rem; transition: 0.3s; padding: 5px; opacity: 0.7; }
         .lang-btn.active { color: var(--coral-orange); opacity: 1; border-bottom: 2px solid var(--coral-orange); }
@@ -45,59 +44,49 @@
         }
         header h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
-        /* --- Weather & Control --- */
+        /* --- Control Panel --- */
         .control-panel { text-align: center; padding: 3rem 1rem; background: var(--light-bg); }
         #searchInput {
             padding: 12px 25px; width: 100%; max-width: 400px; border: 2px solid var(--primary-blue);
             border-radius: 30px; margin-bottom: 20px; font-family: 'Kanit', sans-serif; font-size: 1rem; outline: none;
         }
-
         .filter-btn {
             background: white; border: 2px solid var(--primary-blue); color: var(--primary-blue);
             padding: 8px 25px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
         .filter-btn.active, .filter-btn:hover { background: var(--primary-blue); color: white; }
 
-        /* --- Destination Cards --- */
+        /* --- Cards --- */
         .container { max-width: 1100px; margin: auto; padding: 3rem 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
-        
-        .card { 
-            border-radius: 20px; overflow: hidden; background: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; position: relative;
-        }
+        .card { border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.4s; cursor: pointer; position: relative; }
         .card:hover { transform: translateY(-12px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
         .card img { width: 100%; height: 220px; object-fit: cover; }
         .card-info { padding: 1.5rem; }
+        .weather-tag { background: rgba(98, 124, 176, 0.15); color: var(--primary-blue); padding: 5px 12px; border-radius: 12px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; font-weight: bold; }
 
-        /* Weather Tag Style */
-        .weather-tag {
-            background: rgba(98, 124, 176, 0.15); color: var(--primary-blue); padding: 5px 12px;
-            border-radius: 12px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; font-weight: bold;
-        }
-
-        /* --- Advanced Modal --- */
+        /* --- Advanced Modal CSS (จุดที่แกต้องเพิ่ม) --- */
         .modal {
             display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.85); justify-content: center; align-items: center; overflow-y: auto;
         }
         .modal-content-box { 
-            background: white; width: 90%; max-width: 600px; border-radius: 20px; 
+            background: white; width: 90%; max-width: 550px; border-radius: 20px; 
             overflow: hidden; animation: zoomIn 0.3s; position: relative; margin: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         
-        .modal-img { width: 100%; height: 300px; object-fit: cover; }
-        .modal-body { padding: 30px; text-align: center; }
-        .modal-body h2 { color: var(--primary-blue); margin-top: 0; }
-        .modal-body p { color: #666; line-height: 1.6; margin-bottom: 25px; }
+        .modal-img { width: 100%; height: 280px; object-fit: cover; }
+        .modal-body { padding: 25px; text-align: center; }
+        .modal-body h2 { color: var(--primary-blue); margin: 0 0 10px 0; }
+        .modal-body p { color: #555; line-height: 1.6; margin-bottom: 20px; }
         
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; cursor: pointer; z-index: 2001; }
 
         /* Contact Section */
         .contact-section { background: linear-gradient(135deg, var(--muted-purple), var(--rose-pink)); color: white; padding: 5rem 5%; margin-top: 4rem; }
         .contact-container { max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px; }
-        .contact-links { background: rgba(255, 255, 255, 0.15); padding: 40px; border-radius: 30px; backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); text-align: center; min-width: 300px; }
         .social-icon { width: 50px; height: 50px; background: white; color: var(--rose-pink); display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.5rem; transition: 0.3s; margin: 0 10px; }
         .social-icon:hover { transform: scale(1.15) rotate(10deg); background: var(--coral-orange); color: white; }
 
@@ -105,8 +94,6 @@
             .hamburger { display: flex; }
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); padding: 20px 0; text-align: center; gap: 20px; }
             .nav-links.active { display: flex; }
-            .contact-container { flex-direction: column; text-align: center; }
-            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -144,7 +131,7 @@
 
     <div class="container">
         <div class="grid" id="destinationGrid">
-            <div class="card city" onclick="openModal(this)" data-city="Bangkok" data-map="https://maps.app.goo.gl/t6mjc8i5GqobgzR58">
+            <div class="card city" onclick="openModal(this)" data-city="Bangkok" data-map="https://goo.gl/maps/Y6Pz6H2W9m7S8F5u8">
                 <img src="https://changpuakmagazine.com/images/article/181830arun_May2021.jpg" alt="Wat Arun">
                 <div class="card-info">
                     <div class="weather-tag" id="weather-Bangkok">Checking Weather...</div>
@@ -153,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="card nature" onclick="openModal(this)" data-city="Krabi" data-map="https://maps.app.goo.gl/wJi4HFDWcAD6kxsu5">
+            <div class="card nature" onclick="openModal(this)" data-city="Krabi" data-map="https://goo.gl/maps/7J9W2LitAXRiSjke8">
                 <img src="https://s359.thaicdn.net//pagebuilder/4f575727-7e5c-47a8-87ee-2f7fc48685ac.jpg" alt="Maya Bay">
                 <div class="card-info">
                     <div class="weather-tag" id="weather-Krabi">Checking Weather...</div>
@@ -162,7 +149,7 @@
                 </div>
             </div>
 
-            <div class="card market" onclick="openModal(this)" data-city="Bangkok" data-map="https://maps.app.goo.gl/d6misSYnnKXi3hRMA">
+            <div class="card market" onclick="openModal(this)" data-city="Bangkok" data-map="https://goo.gl/maps/P8FsbEbmu7EVQXfm6">
                 <img src="https://f.ptcdn.info/455/084/000/lx9p9gfji68E0xk4QiZ-o.jpg" alt="Jodd Fairs">
                 <div class="card-info">
                     <div class="weather-tag" id="weather-Bkk-Jodd">Checking Weather...</div>
@@ -171,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="card nature" onclick="openModal(this)" data-city="Chiang Mai" data-map="https://maps.app.goo.gl/JbRySAfcQptKvycy5">
+            <div class="card nature" onclick="openModal(this)" data-city="Chiang Mai" data-map="https://goo.gl/maps/T6S8vK9vX9k">
                 <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/f6/4e/74/2-285-2.jpg" alt="Doi Pha Hom Pok">
                 <div class="card-info">
                     <div class="weather-tag" id="weather-ChiangMai">Checking Weather...</div>
@@ -179,31 +166,12 @@
                     <p data-i18n="desc-doi">Year-round cool weather and 360-degree mountain views.</p>
                 </div>
             </div>
-
-            <div class="card nature" onclick="openModal(this)" data-city="Kanchanaburi" data-map="https://maps.app.goo.gl/7jAW2LitAXRiSjke8">
-                <img src="https://instagram.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/642903319_930328506348339_3109138601427923741_n.jpg?stp=dst-jpg_p2048x2048_tt6&_nc_cat=104&ccb=7-5&_nc_sid=0024fc&_nc_ohc=8O99JmYiro4Q7kNvwGzc3Rd&_nc_oc=Adme-nvPkacXHb5yUFcGmbIl52TLjWwR_HjXLv-GlKjDirL7yBEnAwPJF7neyvo04aU&_nc_zt=23&_nc_ht=instagram.fbkk5-5.fna&_nc_ss=8&oh=03_Q7cD4wF8fw-tP2D5RjaKOcBIsLGQOl305_KfncOtvgtveqQt9w&oe=69CDB8E8" alt="Boutique Raft">
-                <div class="card-info">
-                    <div class="weather-tag" id="weather-Kanchanaburi">Checking Weather...</div>
-                    <h3 data-i18n="title-raft">Boutique Raft Resort</h3>
-                    <p data-i18n="desc-raft">A tranquil riverside sanctuary in Kanchanaburi.</p>
-                </div>
-            </div>
-
-            <div class="card city" onclick="openModal(this)" data-city="Chumphon" data-map="https://maps.app.goo.gl/P8FsbEbmu7EVQxfm6">
-                <img src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/641273160_1623572698669051_6833657801757174946_n.jpg?stp=dst-jpg_p2048x2048_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=4uMJyRVcYgoQ7kNvwGuOF8z&_nc_oc=Admlr716XUlsaPItOjaH0_OU1X_qlF3Gdb-chvdpv95W3bC9WJDP8rrvLO3DrZ2K8Bw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk5-6.fna&_nc_ss=8&oh=03_Q7cD4wFIbeVxdVDBnQcJg5dbmn9v8oPbgsoQUmRunVYqIDk35Q&oe=69CDB37A" alt="COPA CAFE">
-                <div class="card-info">
-                    <div class="weather-tag" id="weather-Chumphon">Checking Weather...</div>
-                    <h3 data-i18n="title-copa">COPA CAFE</h3>
-                    <p data-i18n="desc-copa">A stylish urban hideaway for coffee lovers.</p>
-                </div>
-            </div>
         </div>
     </div>
 
     <div id="imageModal" class="modal">
         <span class="close-modal" onclick="close_modal()">×</span>
-        <div class="modal-content-box" id="modalBox">
-            </div>
+        <div class="modal-content-box" id="modalBox"></div>
     </div>
 
     <section id="contact" class="contact-section">
@@ -216,16 +184,14 @@
             <div class="contact-links">
                 <div class="social-icons" style="display: flex; justify-content: center;">
                     <a href="https://www.instagram.com/jx_jupiter/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://line.me/ti/p/yok-apichaya" target="_blank" class="social-icon"><i class="fab fa-line"></i></a>
                     <a href="https://github.com/jujup1t3r" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                 </div>
-                <p class="copyright" style="margin-top: 20px; opacity: 0.7;">© 2026 Golden Hour | Design by <b>jujx</b></p>
+                <p class="copyright" style="margin-top: 20px; opacity: 0.7;">© 2026 Golden Hour | RMUTT Student Project</p>
             </div>
         </div>
     </section>
 
     <script>
-        // --- 1. Weather API Settings ---
         const weatherApiKey = 'acf4b5da778450404981c9e4e134f767'; 
 
         async function updateAllWeather() {
@@ -245,14 +211,12 @@
             }
         }
 
-        // --- 2. Multi-language Data ---
         const translations = {
             'th': {
                 'nav-home': 'หน้าหลัก', 'nav-explore': 'สำรวจ', 'nav-contact': 'ติดต่อ', 'hero-title': 'ช่วงเวลาสีทอง', 'hero-desc': 'การเดินทางที่แชร์โดยเพื่อนๆ เพื่อทุกคน',
                 'filter-all': 'ทั้งหมด', 'filter-city': 'เมือง', 'filter-nature': 'ธรรมชาติ', 'filter-market': 'ตลาด',
                 'title-arun': 'วัดอรุณฯ', 'desc-arun': 'วัดสวยริมน้ำเจ้าพระยา', 'title-maya': 'อ่าวมาหยา', 'desc-maya': 'สวรรค์กลางทะเลกระบี่',
                 'title-jodd': 'จ๊อด แฟร์', 'desc-jodd': 'แหล่งรวมสตรีทฟู้ดสุดฮิต', 'title-doi': 'ดอยผ้าห่มปก', 'desc-doi': 'วิวทะเลหมอก 360 องศา',
-                'title-raft': 'บูติค ราฟท์ รีสอร์ท', 'desc-raft': 'ที่พักลอยน้ำสุดชิลล์เมืองกาญจน์', 'title-copa': 'โคปา คาเฟ่', 'desc-copa': 'คาเฟ่สุดชิคใจกลางเมือง',
                 'contact-title': 'ติดต่อเรา', 'contact-desc': 'ร่วมแบ่งปันรูปสวยๆ มาลงเว็บเราได้เลย', 'view-map': 'ดูแผนที่บน Google Maps'
             },
             'en': {
@@ -260,7 +224,6 @@
                 'filter-all': 'All', 'filter-city': 'City', 'filter-nature': 'Nature', 'filter-market': 'Market',
                 'title-arun': 'Wat Arun', 'desc-arun': 'Iconic temple by the river.', 'title-maya': 'Maya Bay', 'desc-maya': 'Crystal clear paradise in Krabi.',
                 'title-jodd': 'Jodd Fairs', 'desc-jodd': 'Best street food vibes.', 'title-doi': 'Doi Pha Hom Pok', 'desc-doi': '360° mountain views.',
-                'title-raft': 'Boutique Raft Resort', 'desc-raft': 'Tranquil floating resort.', 'title-copa': 'COPA CAFE', 'desc-copa': 'Stylish urban hideaway.',
                 'contact-title': 'Get In Touch', 'contact-desc': 'Contribute your travel shots here.', 'view-map': 'View on Google Maps'
             },
             'jp': {
@@ -268,12 +231,10 @@
                 'filter-all': 'すべて', 'filter-city': '都市', 'filter-nature': '自然', 'filter-market': '市場',
                 'title-arun': 'ワット・アルン', 'desc-arun': '美しい暁の寺院。', 'title-maya': 'マヤベイ', 'desc-maya': 'クリスタルのような海。',
                 'title-jodd': 'ジョッド・フェア', 'desc-jodd': '人気のナイトマーケット。', 'title-doi': 'ドイ・パーホームポック', 'desc-doi': '絶景の雲海。',
-                'title-raft': 'ブティック・ラフト', 'desc-raft': '川沿いの静かなリゾート。', 'title-copa': 'コパ・カフェ', 'desc-copa': '洗練された隠れ家カフェ。',
                 'contact-title': 'お問い合わせ', 'contact-desc': 'あなたの旅の写真を共有しましょう。', 'view-map': 'Google マップで表示'
             }
         };
 
-        // --- 3. Core Functions ---
         function changeLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -284,6 +245,7 @@
             localStorage.setItem('selectedLang', lang);
         }
 
+        // --- แก้ไขฟังก์ชันเปิด Modal ให้ดึงข้อมูลครบถ้วน ---
         function openModal(el) {
             const lang = localStorage.getItem('selectedLang') || 'en';
             const img = el.querySelector('img').src;
@@ -296,7 +258,7 @@
                 <div class="modal-body">
                     <h2>${title}</h2>
                     <p>${desc}</p>
-                    <a href="${map}" target="_blank" class="filter-btn active" style="text-decoration:none;">
+                    <a href="${map}" target="_blank" class="filter-btn active" style="text-decoration:none; display:inline-block;">
                         <i class="fas fa-map-marked-alt"></i> ${translations[lang]['view-map']}
                     </a>
                 </div>
@@ -305,7 +267,6 @@
         }
 
         function close_modal() { document.getElementById('imageModal').style.display = 'none'; }
-
         function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
         function searchFunction() {
