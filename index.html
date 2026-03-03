@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Hour Tourism - International Version (TH/EN/JP)</title>
+    <title>Golden Hour Tourism - Full Advanced Version</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,125 +18,77 @@
             --star-color: #FFD700;
         }
 
-        body { 
-            font-family: 'Kanit', sans-serif; 
-            margin: 0; padding: 0; color: #333; 
-            scroll-behavior: smooth;
-            background-color: #fff;
-        }
+        body { font-family: 'Kanit', sans-serif; margin: 0; padding: 0; color: #333; scroll-behavior: smooth; background-color: #fff; }
 
         /* --- Navigation --- */
         nav { 
-            background: var(--primary-blue); 
-            padding: 1.2rem 5%; 
-            position: sticky; top: 0; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--primary-blue); padding: 1.2rem 5%; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         .logo { font-size: 1.5rem; font-weight: bold; color: white; }
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .nav-links a:hover { color: var(--coral-orange); }
 
-        /* Language Switcher Style */
         .lang-switch { color: white; font-weight: bold; margin-left: 10px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 15px; display: flex; gap: 5px; }
         .lang-btn { background: none; border: none; color: white; cursor: pointer; font-family: 'Kanit', sans-serif; font-size: 0.9rem; transition: 0.3s; padding: 5px; opacity: 0.7; }
-        .lang-btn:hover, .lang-btn.active { color: var(--coral-orange); opacity: 1; }
+        .lang-btn.active { color: var(--coral-orange); opacity: 1; border-bottom: 2px solid var(--coral-orange); }
 
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .hamburger span { display: block; width: 25px; height: 3px; background-color: white; border-radius: 3px; }
 
         /* --- Hero Section --- */
         header { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://steemitimages.com/DQmdFgo9iDDL7oMRfoMNeYtTjbTPDUrGx3BGfYZKgmzU7eU/00000001.jpg') no-repeat center bottom/cover;
-            height: 60vh; color: white; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://steemitimages.com/DQmdFgo9iDDL7oMRfoMNeYtTjbTPDUrGx3BGfYZKgmzU7eU/00000001.jpg') no-repeat center bottom/cover;
+            height: 60vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
         }
-
         header h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
-        /* --- Search & Filter Section --- */
+        /* --- Control Panel --- */
         .control-panel { text-align: center; padding: 3rem 1rem; background: var(--light-bg); }
-        
         #searchInput {
-            padding: 12px 25px; width: 100%; max-width: 400px;
-            border: 2px solid var(--primary-blue); border-radius: 30px;
-            margin-bottom: 20px; font-family: 'Kanit', sans-serif; font-size: 1rem;
-            outline: none; transition: 0.3s;
+            padding: 12px 25px; width: 100%; max-width: 400px; border: 2px solid var(--primary-blue);
+            border-radius: 30px; margin-bottom: 20px; font-family: 'Kanit', sans-serif; font-size: 1rem; outline: none;
         }
-
         .filter-btn {
-            background: white; border: 2px solid var(--primary-blue);
-            color: var(--primary-blue); padding: 8px 25px; margin: 5px;
-            border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
+            background: white; border: 2px solid var(--primary-blue); color: var(--primary-blue);
+            padding: 8px 25px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
         .filter-btn.active, .filter-btn:hover { background: var(--primary-blue); color: white; }
 
-        /* --- Destination Cards --- */
+        /* --- Cards --- */
         .container { max-width: 1100px; margin: auto; padding: 3rem 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
-        
-        .card { 
-            border-radius: 20px; overflow: hidden; background: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
-        }
+        .card { border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.4s; cursor: pointer; position: relative; }
         .card:hover { transform: translateY(-12px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
         .card img { width: 100%; height: 220px; object-fit: cover; }
         .card-info { padding: 1.5rem; }
-        .card-info h3 { margin: 10px 0; color: var(--primary-blue); }
-        .card-info p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+        .weather-tag { background: rgba(98, 124, 176, 0.15); color: var(--primary-blue); padding: 5px 12px; border-radius: 12px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; font-weight: bold; }
 
-        .rating { color: var(--star-color); font-size: 1.1rem; }
-
-        /* --- Contact Section --- */
-        .contact-section {
-            background: linear-gradient(135deg, var(--muted-purple), var(--rose-pink));
-            color: white; padding: 5rem 5%; margin-top: 4rem;
-        }
-        .contact-container {
-            max-width: 1100px; margin: auto;
-            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px;
-        }
-        .contact-info h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        
-        .contact-links {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px; border-radius: 30px;
-            backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3);
-            text-align: center; min-width: 300px;
-        }
-        .social-icons { display: flex; gap: 20px; justify-content: center; margin: 25px 0; }
-        .social-icon {
-            width: 50px; height: 50px; background: white; color: var(--rose-pink);
-            display: flex; justify-content: center; align-items: center;
-            border-radius: 50%; text-decoration: none; font-size: 1.5rem; transition: 0.3s;
-        }
-        .social-icon:hover { transform: scale(1.15) rotate(10deg); background: var(--coral-orange); color: white; }
-        .copyright { font-size: 0.85rem; margin-top: 25px; opacity: 0.8; }
-
-        /* --- Modal & Responsive --- */
+        /* --- Modal --- */
         .modal {
-            display: none; position: fixed; z-index: 2000;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); justify-content: center; align-items: center;
+            display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); justify-content: center; align-items: center; overflow-y: auto;
         }
-        .modal-content { max-width: 85%; max-height: 80%; border-radius: 10px; }
-        .close-modal { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+        .modal-content-box { 
+            background: white; width: 90%; max-width: 550px; border-radius: 20px; 
+            overflow: hidden; animation: zoomIn 0.3s; position: relative; margin: 20px;
+        }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-img { width: 100%; height: 280px; object-fit: cover; }
+        .modal-body { padding: 25px; text-align: center; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; cursor: pointer; z-index: 2001; }
+
+        /* Contact Section */
+        .contact-section { background: linear-gradient(135deg, var(--muted-purple), var(--rose-pink)); color: white; padding: 5rem 5%; margin-top: 4rem; }
+        .contact-container { max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px; }
+        .social-icon { width: 50px; height: 50px; background: white; color: var(--rose-pink); display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.5rem; transition: 0.3s; margin: 0 10px; }
+        .social-icon:hover { transform: scale(1.15) rotate(10deg); background: var(--coral-orange); color: white; }
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-            .nav-links {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--primary-blue);
-                padding: 20px 0; text-align: center; gap: 20px;
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); padding: 20px 0; text-align: center; gap: 20px; }
             .nav-links.active { display: flex; }
-            .lang-switch { border-left: none; padding-left: 0; margin-left: 0; }
-            .contact-container { flex-direction: column; text-align: center; }
-            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -144,9 +96,7 @@
 
     <nav>
         <div class="logo">🌅 GoldenHour</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <div class="nav-links" id="navLinks">
             <a href="#home" data-i18n="nav-home">Home</a>
             <a href="#explore" data-i18n="nav-explore">Explore</a>
@@ -166,7 +116,6 @@
 
     <section class="control-panel" id="explore">
         <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="ค้นหาสถานที่ท่องเที่ยว...">
-        
         <div class="filter-options">
             <button class="filter-btn active" onclick="filterSelection('all')" data-i18n="filter-all">All</button>
             <button class="filter-btn" onclick="filterSelection('city')" data-i18n="filter-city">City</button>
@@ -177,136 +126,111 @@
 
     <div class="container">
         <div class="grid" id="destinationGrid">
-            <div class="card city" onclick="openModal(this)">
+            <div class="card city" onclick="openModal(this)" data-city="Bangkok" data-map="https://www.google.com/maps/search/?api=1&query=Wat+Arun">
                 <img src="https://changpuakmagazine.com/images/article/181830arun_May2021.jpg" alt="Wat Arun">
                 <div class="card-info">
-                    <div class="rating">★★★★★</div>
+                    <div class="weather-tag" id="weather-Bangkok">Checking Weather...</div>
                     <h3 data-i18n="title-arun">Wat Arun</h3>
                     <p data-i18n="desc-arun">The iconic Temple of Dawn by the Chao Phraya River.</p>
                 </div>
             </div>
 
-            <div class="card nature" onclick="openModal(this)">
+            <div class="card nature" onclick="openModal(this)" data-city="Krabi" data-map="https://www.google.com/maps/search/?api=1&query=Maya+Bay">
                 <img src="https://s359.thaicdn.net//pagebuilder/4f575727-7e5c-47a8-87ee-2f7fc48685ac.jpg" alt="Maya Bay">
                 <div class="card-info">
-                    <div class="rating">★★★★☆</div>
+                    <div class="weather-tag" id="weather-Krabi">Checking Weather...</div>
                     <h3 data-i18n="title-maya">Maya Bay</h3>
                     <p data-i18n="desc-maya">A hidden paradise with crystal clear water at twilight.</p>
                 </div>
             </div>
 
-            <div class="card market" onclick="openModal(this)">
+            <div class="card market" onclick="openModal(this)" data-city="Bangkok" data-map="https://www.google.com/maps/search/?api=1&query=Jodd+Fairs">
                 <img src="https://f.ptcdn.info/455/084/000/lx9p9gfji68E0xk4QiZ-o.jpg" alt="Jodd Fairs">
                 <div class="card-info">
-                    <div class="rating">★★★★★</div>
+                    <div class="weather-tag" id="weather-Bkk-Jodd">Checking Weather...</div>
                     <h3 data-i18n="title-jodd">Jodd Fairs</h3>
                     <p data-i18n="desc-jodd">Experience the ultimate street food night market vibe.</p>
                 </div>
             </div>
 
-            <div class="card nature" onclick="openModal(this)">
+            <div class="card nature" onclick="openModal(this)" data-city="Chiang Mai" data-map="https://www.google.com/maps/search/?api=1&query=Doi+Pha+Hom+Pok">
                 <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/f6/4e/74/2-285-2.jpg" alt="Doi Pha Hom Pok">
                 <div class="card-info">
-                    <div class="rating">★★★★★</div> 
+                    <div class="weather-tag" id="weather-ChiangMai">Checking Weather...</div>
                     <h3 data-i18n="title-doi">Doi Pha Hom Pok</h3>
                     <p data-i18n="desc-doi">Year-round cool weather and 360-degree mountain views.</p>
                 </div>
             </div>
 
-            <div class="card nature" onclick="openModal(this)">
-                <img src="https://instagram.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/642903319_930328506348339_3109138601427923741_n.jpg?stp=dst-jpg_p2048x2048_tt6&_nc_cat=104&ccb=7-5&_nc_sid=0024fc&_nc_ohc=8O99JmYiro4Q7kNvwGzc3Rd&_nc_oc=Adme-nvPkacXHb5yUFcGmbIl52TLjWwR_HjXLv-GlKjDirL7yBEnAwPJF7neyvo04aU&_nc_zt=23&_nc_ht=instagram.fbkk5-5.fna&_nc_ss=8&oh=03_Q7cD4wF8fw-tP2D5RjaKOcBIsLGQOl305_KfncOtvgtveqQt9w&oe=69CDB8E8" alt="Boutique Raft Resort">
+            <div class="card nature" onclick="openModal(this)" data-city="Kanchanaburi" data-map="https://www.google.com/maps/search/?api=1&query=Boutique+Raft+Resort">
+                <img src="https://instagram.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/642903319_930328506348339_3109138601427923741_n.jpg?stp=dst-jpg_p2048x2048_tt6&_nc_cat=104&ccb=7-5&_nc_sid=0024fc&_nc_ohc=8O99JmYiro4Q7kNvwGzc3Rd&_nc_oc=Adme-nvPkacXHb5yUFcGmbIl52TLjWwR_HjXLv-GlKjDirL7yBEnAwPJF7neyvo04aU&_nc_zt=23&_nc_ht=instagram.fbkk5-5.fna&_nc_ss=8&oh=03_Q7cD4wF8fw-tP2D5RjaKOcBIsLGQOl305_KfncOtvgtveqQt9w&oe=69CDB8E8" alt="Boutique Raft">
                 <div class="card-info">
-                    <div class="rating">★★★★☆</div>
-                    <h3 data-i18n="title-raft">Boutique Raft Resort, River Kwai</h3>
+                    <div class="weather-tag" id="weather-Kanchanaburi">Checking Weather...</div>
+                    <h3 data-i18n="title-raft">Boutique Raft Resort</h3>
                     <p data-i18n="desc-raft">A tranquil riverside sanctuary in Kanchanaburi.</p>
                 </div>
             </div>
 
-            <div class="card city" onclick="openModal(this)">
+            <div class="card city" onclick="openModal(this)" data-city="Chumphon" data-map="https://www.google.com/maps/search/?api=1&query=COPA+CAFE">
                 <img src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/641273160_1623572698669051_6833657801757174946_n.jpg?stp=dst-jpg_p2048x2048_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=4uMJyRVcYgoQ7kNvwGuOF8z&_nc_oc=Admlr716XUlsaPItOjaH0_OU1X_qlF3Gdb-chvdpv95W3bC9WJDP8rrvLO3DrZ2K8Bw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk5-6.fna&_nc_ss=8&oh=03_Q7cD4wFIbeVxdVDBnQcJg5dbmn9v8oPbgsoQUmRunVYqIDk35Q&oe=69CDB37A" alt="COPA CAFE">
                 <div class="card-info">
-                    <div class="rating">★★★★★</div>
+                    <div class="weather-tag" id="weather-Chumphon">Checking Weather...</div>
                     <h3 data-i18n="title-copa">COPA CAFE</h3>
-                    <p data-i18n="desc-copa">A stylish urban hideaway for premium beans and handcrafted treats.</p>
+                    <p data-i18n="desc-copa">A stylish urban hideaway for coffee lovers.</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="close_modal()">×</span>
+        <div class="modal-content-box" id="modalBox"></div>
     </div>
 
     <section id="contact" class="contact-section">
         <div class="contact-container">
             <div class="contact-info">
                 <h2 data-i18n="contact-title">Get In Touch</h2>
-                <p data-i18n="contact-desc">Contribute your travel shots and be featured on our site.</p>
-                <div class="contact-details">
-                    <p><i class="fas fa-map-marker-alt"></i> RMUTT, Pathum Thani</p>
-                    <p><i class="fas fa-envelope"></i> apichaya.fow@gmail.com</p>
-                </div>
+                <p data-i18n="contact-desc">Share your travel shots and be part of our site.</p>
+                <p><i class="fas fa-envelope"></i> apichaya.fow@gmail.com</p>
             </div>
-            
             <div class="contact-links">
-                <h3 data-i18n="follow-title">Follow The Project</h3>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/jx_jupiter/" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://line.me/ti/p/yok-apichaya" target="_blank" class="social-icon"><i class="fab fa-line"></i></a>
+                <div class="social-icons" style="display: flex; justify-content: center;">
+                    <a href="https://www.instagram.com/jx_jupiter/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="https://github.com/jujup1t3r" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                 </div>
-                <p class="copyright">© 2026 Golden Hour | Designed by <b>jujx</b></p>
+                <p class="copyright" style="margin-top: 20px; opacity: 0.7;">© 2026 Golden Hour | RMUTT Student Project</p>
             </div>
         </div>
     </section>
 
-    <div id="imageModal" class="modal">
-        <span class="close-modal" onclick="close_modal()">&times;</span>
-        <img class="modal-content" id="imgFull">
-    </div>
-
     <script>
+        const weatherApiKey = 'acf4b5da778450404981c9e4e134f767'; //
+
         const translations = {
             'th': {
-                'nav-home': 'หน้าหลัก', 'nav-explore': 'สำรวจ', 'nav-contact': 'ติดต่อ',
-                'hero-title': 'สัมผัสช่วงเวลาสีทอง',
-                'hero-desc': 'การเดินทางของคุณเริ่มต้นที่นี่ แบ่งปันโดยเพื่อนๆ เพื่อทุกคน',
-                'search-placeholder': 'ค้นหาสถานที่ท่องเที่ยว...',
+                'nav-home': 'หน้าหลัก', 'nav-explore': 'สำรวจ', 'nav-contact': 'ติดต่อ', 'hero-title': 'สัมผัสช่วงเวลาสีทอง', 'hero-desc': 'การเดินทางที่แชร์โดยเพื่อนๆ เพื่อทุกคน',
                 'filter-all': 'ทั้งหมด', 'filter-city': 'เมือง', 'filter-nature': 'ธรรมชาติ', 'filter-market': 'ตลาด',
-                'title-arun': 'วัดอรุณฯ', 'desc-arun': 'วัดที่เป็นสัญลักษณ์ความสวยงามริมแม่น้ำเจ้าพระยา',
-                'title-maya': 'อ่าวมาหยา', 'desc-maya': 'สวรรค์ที่ซ่อนอยู่กับน้ำใสราวกระจกยามเย็น',
-                'title-jodd': 'จ๊อด แฟร์', 'desc-jodd': 'สัมผัสบรรยากาศสตรีทฟู้ดและตลาดกลางคืนสุดฮิต',
-                'title-doi': 'ดอยผ้าห่มปก', 'desc-doi': 'อากาศเย็นตลอดปีและวิวภูเขาแบบ 360 องศา',
-                'title-raft': 'บูติค ราฟท์ รีสอร์ท ริเวอร์แคว', 'desc-raft': 'ที่พักริมน้ำอันเงียบสงบใจกลางกาญจนบุรี',
-                'title-copa': 'โคปา คาเฟ่', 'desc-copa': 'ที่พักใจกลางเมืองสุดชิค สำหรับคนรักกาแฟและขนมหวาน',
-                'contact-title': 'ติดต่อเรา', 'contact-desc': 'ร่วมแบ่งปันภาพถ่ายการเดินทางสวยๆ เพื่อเป็นส่วนหนึ่งของเว็บเรา',
-                'follow-title': 'ติดตามโปรเจกต์'
+                'title-arun': 'วัดอรุณฯ', 'desc-arun': 'วัดสวยริมน้ำเจ้าพระยา', 'title-maya': 'อ่าวมาหยา', 'desc-maya': 'สวรรค์กลางทะเลกระบี่',
+                'title-jodd': 'จ๊อด แฟร์', 'desc-jodd': 'แหล่งรวมสตรีทฟู้ดสุดฮิต', 'title-doi': 'ดอยผ้าห่มปก', 'desc-doi': 'วิวทะเลหมอก 360 องศา',
+                'title-raft': 'บูติค ราฟท์ รีสอร์ท', 'desc-raft': 'ที่พักลอยน้ำสุดชิลล์เมืองกาญจน์', 'title-copa': 'โคปา คาเฟ่', 'desc-copa': 'คาเฟ่สุดชิคใจกลางเมือง',
+                'contact-title': 'ติดต่อเรา', 'contact-desc': 'ร่วมแบ่งปันรูปสวยๆ มาลงเว็บเราได้เลย', 'view-map': 'ดูแผนที่บน Google Maps'
             },
             'en': {
-                'nav-home': 'Home', 'nav-explore': 'Explore', 'nav-contact': 'Contact',
-                'hero-title': 'Golden Hour Experience',
-                'hero-desc': 'Your journey begins here. Shared by friends, for everyone.',
-                'search-placeholder': 'Search by destination name...',
+                'nav-home': 'Home', 'nav-explore': 'Explore', 'nav-contact': 'Contact', 'hero-title': 'Golden Hour Experience', 'hero-desc': 'Travel shared by friends, for everyone.',
                 'filter-all': 'All', 'filter-city': 'City', 'filter-nature': 'Nature', 'filter-market': 'Market',
-                'title-arun': 'Wat Arun', 'desc-arun': 'The iconic Temple of Dawn by the Chao Phraya River.',
-                'title-maya': 'Maya Bay', 'desc-maya': 'A hidden paradise with crystal clear water at twilight.',
-                'title-jodd': 'Jodd Fairs', 'desc-jodd': 'Experience the ultimate street food night market vibe.',
-                'title-doi': 'Doi Pha Hom Pok', 'desc-doi': 'Year-round cool weather and 360-degree mountain views.',
-                'title-raft': 'Boutique Raft Resort, River Kwai', 'desc-raft': 'A tranquil riverside sanctuary in Kanchanaburi.',
-                'title-copa': 'COPA CAFE', 'desc-copa': 'A stylish urban hideaway for premium beans and handcrafted treats.',
-                'contact-title': 'Get In Touch', 'contact-desc': 'Contribute your travel shots and be featured on our site.',
-                'follow-title': 'Follow The Project'
+                'title-arun': 'Wat Arun', 'desc-arun': 'Iconic temple by the river.', 'title-maya': 'Maya Bay', 'desc-maya': 'Crystal clear paradise in Krabi.',
+                'title-jodd': 'Jodd Fairs', 'desc-jodd': 'Best street food vibes.', 'title-doi': 'Doi Pha Hom Pok', 'desc-doi': '360° mountain views.',
+                'title-raft': 'Boutique Raft Resort', 'desc-raft': 'Tranquil floating resort.', 'title-copa': 'COPA CAFE', 'desc-copa': 'Stylish urban hideaway.',
+                'contact-title': 'Get In Touch', 'contact-desc': 'Contribute your travel shots here.', 'view-map': 'View on Google Maps'
             },
             'jp': {
-                'nav-home': 'ホーム', 'nav-explore': '探索', 'nav-contact': 'お問い合わせ',
-                'hero-title': 'ゴールデンアワー・エクスペリエンス',
-                'hero-desc': 'あなたの旅はここから始まる。友人と共有する、みんなのための場所。',
-                'search-placeholder': '目的地を検索...',
+                'nav-home': 'ホーム', 'nav-explore': '探索', 'nav-contact': 'お問い合わせ', 'hero-title': 'ゴールデンアワー', 'hero-desc': '友人たちが共有する旅の記録。',
                 'filter-all': 'すべて', 'filter-city': '都市', 'filter-nature': '自然', 'filter-market': '市場',
-                'title-arun': 'ワット・アルン', 'desc-arun': 'チャオプラヤー川沿いにそびえる、暁の寺として知られる象徴的な寺院。',
-                'title-maya': 'マヤベイ', 'desc-maya': '夕暮れ時にクリスタルクリアな水が広がる、隠れた楽園。',
-                'title-jodd': 'ジョッド・フェア', 'desc-jodd': '究極のストリートフードとナイトマーケットの雰囲気を体験。',
-                'title-doi': 'ドイ・パーホームポック', 'desc-doi': '一年中涼しい気候と、360度のパノラマ山岳絶景。',
-                'title-raft': 'ブティック・ラフト・リゾート（クウェー川）', 'desc-raft': 'カンチャナブリーの川沿いにある、静かな隠れ家リゾート。',
-                'title-copa': 'コパ・カフェ', 'desc-copa': 'プレミアムな豆と手作りスイーツが楽しめる、都会的でスタイリッシュな隠れ家。',
-                'contact-title': 'お問い合わせ', 'contact-desc': 'あなたの素敵な旅行写真を共有して、私たちのサイトの一部になりませんか。',
-                'follow-title': 'プロジェクトをフォロー'
+                'title-arun': 'ワット・アルン', 'desc-arun': '美しい暁の寺院。', 'title-maya': 'マヤベイ', 'desc-maya': 'クリスタルのような海。',
+                'title-jodd': 'ジョッド・フェア', 'desc-jodd': '人気のナイトマーケット。', 'title-doi': 'ドイ・パーホームポック', 'desc-doi': '絶景の雲海。',
+                'title-raft': 'ブティック・ラフト', 'desc-raft': '川沿いの静かなリゾート。', 'title-copa': 'コパ・カフェ', 'desc-copa': '洗練された隠れ家カフェ。',
+                'contact-title': 'お問い合わせ', 'contact-desc': 'あなたの旅の写真を共有しましょう。', 'view-map': 'Google マップで表示'
             }
         };
 
@@ -315,54 +239,73 @@
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) el.innerText = translations[lang][key];
             });
-            document.getElementById('searchInput').placeholder = translations[lang]['search-placeholder'];
-            
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
             localStorage.setItem('selectedLang', lang);
         }
 
-        window.onload = () => {
-            const savedLang = localStorage.getItem('selectedLang') || 'en';
-            changeLanguage(savedLang);
-        };
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            if(window.innerWidth <= 768) navLinks.classList.toggle('active');
+        async function updateAllWeather() {
+            const cards = document.querySelectorAll('.card');
+            for (let card of cards) {
+                const city = card.getAttribute('data-city');
+                const tag = card.querySelector('.weather-tag');
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`);
+                    const data = await response.json();
+                    if (data.main) {
+                        const temp = Math.round(data.main.temp);
+                        tag.innerHTML = `<i class="fas fa-temperature-high"></i> ${temp}°C | ${data.weather[0].main}`;
+                    }
+                } catch (e) { tag.innerText = "Weather N/A"; }
+            }
         }
+
+        function openModal(el) {
+            const lang = localStorage.getItem('selectedLang') || 'en';
+            const img = el.querySelector('img').src;
+            const title = el.querySelector('h3').innerText;
+            const desc = el.querySelector('p').innerText;
+            const map = el.getAttribute('data-map');
+
+            document.getElementById('modalBox').innerHTML = `
+                <img src="${img}" class="modal-img">
+                <div class="modal-body">
+                    <h2>${title}</h2>
+                    <p>${desc}</p>
+                    <a href="${map}" target="_blank" class="filter-btn active" style="text-decoration:none; display:inline-block;">
+                        <i class="fas fa-map-marked-alt"></i> ${translations[lang]['view-map']}
+                    </a>
+                </div>
+            `;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function close_modal() { document.getElementById('imageModal').style.display = 'none'; }
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
         function searchFunction() {
             let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                cards[i].style.display = title.includes(input) ? "" : "none";
-            }
+            document.querySelectorAll('.card').forEach(card => {
+                let title = card.querySelector('h3').innerText.toLowerCase();
+                card.style.display = title.includes(input) ? "" : "none";
+            });
         }
 
         function filterSelection(c) {
-            document.getElementById('searchInput').value = ""; 
-            var x = document.getElementsByClassName("card");
-            if (c == "all") c = "";
-            for (var i = 0; i < x.length; i++) {
-                x[i].style.display = (x[i].className.indexOf(c) > -1) ? "" : "none";
-            }
-            var btns = document.getElementsByClassName("filter-btn");
-            for (var j = 0; j < btns.length; j++) btns[j].classList.remove("active");
-            event.currentTarget.classList.add("active");
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.display = (c === 'all' || card.classList.contains(c)) ? "" : "none";
+            });
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
         }
 
-        function openModal(element) {
-            var fullImg = element.getElementsByTagName('img')[0].src;
-            document.getElementById("imgFull").src = fullImg;
-            document.getElementById("imageModal").style.display = "flex";
-        }
+        window.onload = () => {
+            const savedLang = localStorage.getItem('selectedLang') || 'en';
+            changeLanguage(savedLang);
+            updateAllWeather();
+        };
 
-        function close_modal() { document.getElementById("imageModal").style.display = "none"; }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("imageModal")) close_modal();
-        }
+        window.onclick = (e) => { if (e.target == document.getElementById('imageModal')) close_modal(); }
     </script>
 </body>
 </html>
