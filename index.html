@@ -53,6 +53,40 @@
         .modal-content-box { background: white; width: 90%; max-width: 500px; border-radius: 20px; overflow: hidden; position: relative; }
         .modal-body { padding: 25px; text-align: center; }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #fff; cursor: pointer; }
+
+        .contact-section { 
+    background: linear-gradient(135deg, var(--muted-purple), var(--rose-pink)); 
+    color: white; 
+    padding: 5rem 5%; 
+    margin-top: 4rem; 
+}
+.contact-container { 
+    max-width: 1100px; 
+    margin: auto; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 40px; 
+}
+.social-icon { 
+    width: 50px; 
+    height: 50px; 
+    background: white; 
+    color: var(--rose-pink); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%; 
+    text-decoration: none; 
+    font-size: 1.5rem; 
+    transition: 0.3s; 
+}
+.social-icon:hover { 
+    transform: scale(1.15) rotate(10deg); 
+    background: var(--coral-orange); 
+    color: white; 
+}
     </style>
 </head>
 <body>
@@ -267,5 +301,31 @@
         window.onload = () => { updateWeather(); changeLanguage(localStorage.getItem('selectedLang') || 'th'); };
         window.onclick = (e) => { if (e.target == document.getElementById('imageModal')) close_modal(); }
     </script>
+
+    <section id="contact" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2 data-i18n="contact-title">Get In Touch</h2>
+            <p data-i18n="contact-desc">Share your travel shots and be part of our site.</p>
+            <p><i class="fas fa-envelope"></i> apichaya.fow@gmail.com</p>
+        </div>
+        <div class="contact-links">
+            <div class="social-icons" style="display: flex; justify-content: center; gap: 15px;">
+                <a href="https://www.instagram.com/jx_jupiter/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://line.me/ti/p/yok-apichaya" target="_blank" class="social-icon">
+                    <i class="fab fa-line"></i>
+                </a>
+                <a href="https://github.com/jujup1t3r" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p class="copyright" style="margin-top: 20px; opacity: 0.7;">
+                © 2026 Golden Hour | Design by <b>Apichaya Phumpuang</b>
+            </p>
+        </div>
+    </div>
+</section>
 </body>
 </html>
