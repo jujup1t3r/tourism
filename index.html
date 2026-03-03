@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Hour Tourism - RMUTT CS Edition</title>
+    <title>Golden Hour Tourism - Complete RMUTT Edition</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -36,7 +36,7 @@
         }
 
         /* --- Cards Fix (แก้บั๊ก icon ใหญ่) --- */
-        .container { max-width: 1100px; margin: auto; padding: 2rem; }
+        .container { max-width: 1200px; margin: auto; padding: 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.4s; cursor: pointer; position: relative; }
         .card:hover { transform: translateY(-10px); }
@@ -44,6 +44,8 @@
         
         .card-info { padding: 1.5rem; }
         .weather-tag { background: rgba(98, 124, 176, 0.1); color: var(--primary-blue); padding: 5px 12px; border-radius: 12px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; font-weight: bold; }
+        
+        /* คุมขนาด icon อากาศ */
         .weather-tag img { width: 25px !important; height: auto !important; vertical-align: middle; margin-right: 5px; }
 
         /* --- Modal --- */
@@ -80,6 +82,33 @@
                 </div>
             </div>
 
+            <div class="card nature" onclick="openModal(this)" data-city="Krabi" data-map="https://www.google.com/maps/search/Maya+Bay">
+                <img src="https://s359.thaicdn.net//pagebuilder/4f575727-7e5c-47a8-87ee-2f7fc48685ac.jpg" alt="Maya Bay">
+                <div class="card-info">
+                    <div class="weather-tag">Checking...</div>
+                    <h3 data-i18n="title-maya">Maya Bay</h3>
+                    <p data-i18n="desc-maya">Crystal clear paradise in Krabi.</p>
+                </div>
+            </div>
+
+            <div class="card market" onclick="openModal(this)" data-city="Bangkok" data-map="https://www.google.com/maps/search/Jodd+Fairs">
+                <img src="https://f.ptcdn.info/455/084/000/lx9p9gfji68E0xk4QiZ-o.jpg" alt="Jodd Fairs">
+                <div class="card-info">
+                    <div class="weather-tag">Checking...</div>
+                    <h3 data-i18n="title-jodd">Jodd Fairs</h3>
+                    <p data-i18n="desc-jodd">Best street food vibes.</p>
+                </div>
+            </div>
+
+            <div class="card nature" onclick="openModal(this)" data-city="Chiang Mai" data-map="https://www.google.com/maps/search/Doi+Pha+Hom+Pok">
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/f6/4e/74/2-285-2.jpg" alt="Doi Pha Hom Pok">
+                <div class="card-info">
+                    <div class="weather-tag">Checking...</div>
+                    <h3 data-i18n="title-doi">Doi Pha Hom Pok</h3>
+                    <p data-i18n="desc-doi">360° mountain views.</p>
+                </div>
+            </div>
+
             <div class="card nature" onclick="openModal(this)" data-city="Kanchanaburi" data-map="https://www.google.com/maps/search/Boutique+Raft+Resort">
                 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800" alt="Boutique Raft">
                 <div class="card-info">
@@ -89,12 +118,21 @@
                 </div>
             </div>
 
-            <div class="card city" onclick="openModal(this)" data-city="Pathum Thani" data-map="https://www.google.com/maps/search/NSM+Thailand">
+            <div class="card city" onclick="openModal(this)" data-city="Chumphon" data-map="https://www.google.com/maps/search/COPA+CAFE">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800" alt="COPA CAFE">
+                <div class="card-info">
+                    <div class="weather-tag">Checking...</div>
+                    <h3 data-i18n="title-copa">COPA CAFE</h3>
+                    <p data-i18n="desc-copa">Stylish urban hideaway.</p>
+                </div>
+            </div>
+
+            <div class="card city" onclick="openModal(this)" data-city="Pathum Thani" data-map="https://www.google.com/maps/search/NSM+Museum">
                 <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800" alt="NSM">
                 <div class="card-info">
                     <div class="weather-tag">Checking...</div>
                     <h3 data-i18n="title-nsm">NSM</h3>
-                    <p>Futuristic science hub with iconic cube architecture.</p>
+                    <p data-i18n="desc-nsm">Futuristic science hub with iconic cube architecture.</p>
                 </div>
             </div>
 
@@ -103,7 +141,7 @@
                 <div class="card-info">
                     <div class="weather-tag">Checking...</div>
                     <h3 data-i18n="title-sarika">Sarika Waterfall</h3>
-                    <p>Grand waterfall nestled in lush green nature.</p>
+                    <p data-i18n="desc-sarika">Grand waterfall nestled in lush green nature.</p>
                 </div>
             </div>
 
@@ -112,18 +150,28 @@
                 <div class="card-info">
                     <div class="weather-tag">Checking...</div>
                     <h3 data-i18n="title-larn">Koh Larn</h3>
-                    <p>Crystal-clear waters and white sand paradise.</p>
+                    <p data-i18n="desc-larn">Crystal-clear waters and white sand paradise.</p>
                 </div>
             </div>
-            
-            <div class="card city" onclick="openModal(this)" data-city="Bangkok" data-map="https://www.google.com/maps/search/BACC">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800" alt="BACC">
+
+            <div class="card nature" onclick="openModal(this)" data-city="Chonburi" data-map="https://www.google.com/maps/search/Pattaya+Beach">
+                <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800" alt="Pattaya">
+                <div class="card-info">
+                    <div class="weather-tag">Checking...</div>
+                    <h3 data-i18n="title-pattaya">Pattaya</h3>
+                    <p data-i18n="desc-pattaya">Vibrant beach city with endless fun and nightlife.</p>
+                </div>
+            </div>
+
+            <div class="card city" onclick="openModal(this)" data-city="Bangkok" data-map="https://www.google.com/maps/search/BACC+Art+Center">
+                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800" alt="BACC">
                 <div class="card-info">
                     <div class="weather-tag">Checking...</div>
                     <h3 data-i18n="title-bacc">BACC</h3>
-                    <p>Creative urban space for contemporary art lovers.</p>
+                    <p data-i18n="desc-bacc">Creative urban space for contemporary art lovers.</p>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -153,20 +201,28 @@
 
         const translations = {
             'th': { 
-                'hero-title': 'ช่วงเวลาสีทอง', 
-                'title-arun': 'วัดอรุณฯ', 'title-raft': 'บูติค ราฟท์', 'title-nsm': 'ตึกลูกเต๋า (NSM)', 
-                'title-sarika': 'น้ำตกสาริกา', 'title-larn': 'เกาะล้าน', 'title-bacc': 'หอศิลป์ (BACC)',
+                'hero-title': 'ช่วงเวลาสีทอง', 'hero-desc': 'การเดินทางที่แชร์โดยเพื่อนๆ เพื่อทุกคน',
+                'title-arun': 'วัดอรุณฯ', 'title-maya': 'อ่าวมาหยา', 'title-jodd': 'จ๊อด แฟร์', 'title-doi': 'ดอยผ้าห่มปก', 'title-raft': 'บูติค ราฟท์', 'title-copa': 'โคปา คาเฟ่',
+                'title-nsm': 'ตึกลูกเต๋า (NSM)', 'title-sarika': 'น้ำตกสาริกา', 'title-larn': 'เกาะล้าน', 'title-pattaya': 'พัทยา', 'title-bacc': 'หอศิลป์ (BACC)',
+                'desc-arun': 'วัดสวยริมน้ำเจ้าพระยา', 'desc-maya': 'สวรรค์กลางทะเลกระบี่', 'desc-jodd': 'แหล่งรวมสตรีทฟู้ดสุดฮิต', 'desc-doi': 'วิวทะเลหมอก 360 องศา',
+                'desc-raft': 'ที่พักลอยน้ำเมืองกาญจน์', 'desc-copa': 'คาเฟ่สุดชิคใจกลางเมือง', 'desc-nsm': 'สถาปัตยกรรมสุดล้ำ แหล่งเรียนรู้ทางวิทยาศาสตร์',
+                'desc-sarika': 'สัมผัสความเย็นฉ่ำของสายน้ำท่ามกลางธรรมชาติ', 'desc-larn': 'น้ำใส ทะเลสวย สวรรค์ของคนรักหาดทรายขาว',
+                'desc-pattaya': 'เมืองชายทะเลที่ไม่เคยหลับใหล', 'desc-bacc': 'เสพศิลป์ เติมแรงบันดาลใจใจกลางเมือง',
                 'view-map': 'ดูแผนที่จริง' 
             },
             'en': { 
-                'hero-title': 'Golden Hour Experience', 
-                'title-arun': 'Wat Arun', 'title-raft': 'Boutique Raft', 'title-nsm': 'Dice Building (NSM)', 
-                'title-sarika': 'Sarika Waterfall', 'title-larn': 'Koh Larn', 'title-bacc': 'Art Gallery (BACC)',
+                'hero-title': 'Golden Hour Experience', 'hero-desc': 'Travel shared by friends, for everyone.',
+                'title-arun': 'Wat Arun', 'title-maya': 'Maya Bay', 'title-jodd': 'Jodd Fairs', 'title-doi': 'Doi Pha Hom Pok', 'title-raft': 'Boutique Raft', 'title-copa': 'COPA CAFE',
+                'title-nsm': 'Dice Building (NSM)', 'title-sarika': 'Sarika Waterfall', 'title-larn': 'Koh Larn', 'title-pattaya': 'Pattaya', 'title-bacc': 'Art Gallery (BACC)',
+                'desc-arun': 'Iconic temple by the river.', 'desc-maya': 'Crystal clear paradise in Krabi.', 'desc-jodd': 'Best street food vibes.', 'desc-doi': '360° mountain views.',
+                'desc-raft': 'Tranquil floating resort.', 'desc-copa': 'Stylish urban hideaway.', 'desc-nsm': 'Futuristic science hub with iconic architecture.',
+                'desc-sarika': 'Grand waterfall nestled in lush green nature.', 'desc-larn': 'Crystal-clear waters and white sand paradise.',
+                'desc-pattaya': 'Vibrant beach city with endless fun.', 'desc-bacc': 'Creative urban space for contemporary art lovers.',
                 'view-map': 'View on Google Maps' 
             },
             'jp': { 
-                'hero-title': 'ゴールデンアワー', 
-                'title-arun': 'ワット・アルン', 'title-nsm': 'サイエンス・ミュージアム', 'title-larn': 'ラン島',
+                'hero-title': 'ゴールデンアワー', 'hero-desc': '友人たちが共有する旅の記録。',
+                'title-arun': 'ワット・アルン', 'title-nsm': 'サイエンス・ミュージアム', 'title-larn': 'ラン島', 'title-bacc': '芸術文化センター',
                 'view-map': '地図を表示' 
             }
         };
